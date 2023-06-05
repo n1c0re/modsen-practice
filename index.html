@@ -1,13 +1,41 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <div class="header"></div>
-    <div class="content"></div> 
-</body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <h1>Search for books</h1>
+  <div class="container">
+    <textarea class="bookName"></textarea>
+    <div class="filters">
+      <p>Categories</p>
+      <select name="categories" id="category-select">
+        <option value="">--Please choose an option--</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+    </select>
+      <p>Sorting by</p>
+      <select name="sorting" id="sorting-select">
+        <option value="">--Please choose an option--</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+    </select>
+    </div>
+  </div>
+    </div>
+      <div class="content">
+        <p>Found 1 results</p>
+      <div class="bookItem"><img width="100px" src="https://www.codewars.com/packs/assets/logo.61192cf7.svg"></img>
+    <p>category</p>
+    <p>name</p>
+    <p>author</p>
+    </div>
+    </div>
+  </body>
 </html>
