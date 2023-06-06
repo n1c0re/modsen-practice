@@ -4,10 +4,21 @@ import "./SearchPage.css";
 
 const SearchPage = () => {
   return (
-    <div className="SearchPage">
+    <div className="searchPage">
       <div className="foundText">Found 1 results</div>
-      <BookContainer />
-      <BookContainer />
+      <div className="books">
+        <BookContainer />
+        <BookContainer />
+        <BookContainer />
+        <BookContainer />
+        <BookContainer />
+        <BookContainer />
+        <BookContainer />
+        <BookContainer />
+        <BookContainer />
+        <BookContainer />
+
+      </div>
     </div>
   );
 };

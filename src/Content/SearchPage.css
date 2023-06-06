@@ -5,4 +5,11 @@
 
 .foundText {
   text-align: center;
+  margin: 10px;
+}
+
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 35px;
 }

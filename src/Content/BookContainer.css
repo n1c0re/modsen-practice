@@ -1,26 +1,29 @@
 ﻿.book-container {
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-  }
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 330px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  background-color: aliceblue;
+}
 
-  .book-container img {
-    align-self: center;
-    width: 100px;
-  }
+.book-container img {
+  align-self: center;
+  width: 100px;
+}
 
-  .book-category {
-    font-size: 14px;
-    margin-top: 10px;
-    text-decoration: underline;
-  }
+.book-category {
+  font-size: 14px;
+  margin-top: 10px;
+  text-decoration: underline;
+}
 
-  .book-name {
-    margin-top: 0px;
-  }
+.book-name {
+  margin-top: 0px;
+}
 
-  .book-author {
-    margin-top: 0px;
-  }
+.book-author {
+  margin-top: 0px;
+}

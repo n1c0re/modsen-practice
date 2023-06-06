@@ -1,32 +1,48 @@
 ﻿.header {
-    grid-area: header;
-    border: 2px solid;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: gray;
-  }
+  grid-area: header;
+  border: 2px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:url('D:/Приколы на JavaScript/Modsen Practice/Book/modsen-practice/public/book.jpg') no-repeat;
+  background-position: 0%;
+  background-size: 1500px;
+  color:whitesmoke  ;
+}
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .filters {
-    display: flex;
-    flex-direction: row;
+.container {
+  width: 41%;
+  display: flex;
+  flex-direction:row;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
   margin-top: 5px;
-  }
-  
-  .bookName {
-  height: 25px;
-  width: 450px;
-  font-size: 20px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.bookName {
+  width: 100%;
+  font-size: 25px;
   resize: none;
-  overflow:hidden;
-  }
-  
-  select {
-    margin: 5px;
-  }
+}
+
+select {
+  margin: 5px;
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  color: gray;
+}
+
+p {
+  font-size: 20px;
+}
+
+button {
+  background-color: white;
+  height: 35px;
+}

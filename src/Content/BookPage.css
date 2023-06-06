@@ -1,0 +1,22 @@
+﻿.bookpage {
+  display: flex;
+  height: calc(100vh - 188px);
+}
+
+.bookImage {
+  background-color: aliceblue;
+  width: 45%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookImage img {
+  width: 300px;
+}
+
+.bookInfo {
+  margin-left: 40px;
+  margin-top: 30px;
+}
