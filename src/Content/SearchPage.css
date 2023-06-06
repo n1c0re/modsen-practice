@@ -1,0 +1,8 @@
+﻿.content {
+  grid-area: content;
+  border: 2px solid;
+}
+
+.foundText {
+  text-align: center;
+}

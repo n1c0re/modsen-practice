@@ -1,0 +1,7 @@
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "content";
+  grid-auto-rows: 1fr 3fr;
+}

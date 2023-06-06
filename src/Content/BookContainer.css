@@ -1,0 +1,26 @@
+﻿.book-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .book-container img {
+    align-self: center;
+    width: 100px;
+  }
+
+  .book-category {
+    font-size: 14px;
+    margin-top: 10px;
+    text-decoration: underline;
+  }
+
+  .book-name {
+    margin-top: 0px;
+  }
+
+  .book-author {
+    margin-top: 0px;
+  }
