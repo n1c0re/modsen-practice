@@ -11,7 +11,7 @@ const Header = () => {
       fetch(
           `https://www.googleapis.com/books/v1/volumes?q=${search}&key=AIzaSyAVHh3aAiSke8Ap6Zx6qtYfTVTZsPqNP8U`
         )
-        .then((response) => console.log(response.data.items))
+        .then((response) => setData(response.data.items))
         .catch((error) => console.log(error));
     }
   };
