@@ -1,26 +1,21 @@
 ﻿import React from "react";
+import { NavLink } from "react-router-dom";
 import "./BookContainer.css";
 
-const BookContainer = ({ book }) => {
-  console.log(book);
-  return (
-    <>
-      {book.map((book) => {
-        return (
-          <div className="book-container">
-            <img
-              src="https://www.codewars.com/packs/assets/logo.61192cf7.svg"
-              alt="Book Cover"
-            />
-            <div className="bookInfo">
-              <p class="book-category">Category</p>
-              <h2 class="book-name">Name</h2>
-              <p class="book-author">Author</p>
-            </div>
+const BookContainer = ( {book} ) => {
+  return book.map((item) => {
+    if (item.volumeInfo.imageLinks !== undefined) {
+      return (
+        <div className="book-container">
+        <NavLink to="/book" ><img src={item.volumeInfo.imageLinks.thumbnail} alt="Book image" /></NavLink>
+          <div className="bookInfo">
+            <p class="book-category">{item.volumeInfo.categories}</p>
+            <h2 class="book-name">{item.volumeInfo.title}</h2>
+            <p class="book-author">{item.volumeInfo.authors}</p>
           </div>
-        );
-      })}
-    </>
-  );
+        </div>
+      );
+    }
+  });
 };
 export default BookContainer;

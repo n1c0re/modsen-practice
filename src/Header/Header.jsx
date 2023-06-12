@@ -8,11 +8,12 @@ const Header = () => {
 
   const searchBook = (event) => {
     if (event.key === "Enter") {
-      fetch(
+      axios.get(
           `https://www.googleapis.com/books/v1/volumes?q=${search}&key=AIzaSyAVHh3aAiSke8Ap6Zx6qtYfTVTZsPqNP8U`
         )
-        .then((response) => setData(response.data.items))
+        .then((response) => setData(response))
         .catch((error) => console.log(error));
+        console.log(bookData);
     }
   };
   return (

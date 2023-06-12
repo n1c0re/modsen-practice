@@ -1,5 +1,5 @@
 ﻿import React from "react";
-// import "./BookPage.css"
+import "./BookPage.css"
 
 const BookPage = () => {
   return (
@@ -10,7 +10,7 @@ const BookPage = () => {
           alt="Book Cover"
         />
       </div>
-      <div className="bookInfo">
+      <div className="info">
         <p class="book-category">Category</p>
         <h2 class="book-name">Name</h2>
         <p class="book-author">Author</p>
