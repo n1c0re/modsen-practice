@@ -6,9 +6,9 @@ import Header from './Header/Header';
 function App() {
   return (
     <div className="wrapper">
-      <Header />
-        <BookPage />
-        {/* <SearchPage /> */}
+      {/* <Header /> */}
+        {/* <BookPage /> */}
+        <SearchPage />
     </div>
   );
 }
