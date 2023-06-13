@@ -1,0 +1,26 @@
+﻿.searchPage {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
+    grid-gap: 20px;
+    box-sizing: border-box;
+  }
+
+  .foundText {
+    text-align: center;
+    margin: 10px;
+    font-size: 20px;
+  }
+
+  .more {
+    padding: 12px;
+    height: 50px;
+    width: 180px;
+    color: black;
+    margin: auto;
+    font-size: 30px;
+    background-color: rgb(190, 205, 215);
+    margin-bottom: 12px;
+  }

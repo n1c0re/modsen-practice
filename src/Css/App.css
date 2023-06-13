@@ -10,3 +10,7 @@
     "content";
   grid-auto-rows: auto 1fr;
 } */
+
+.wrapper {
+  display: grid;
+}
