@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import "../Css/SearchZone.css";
 
 const SearchZone = (props) => {
@@ -16,11 +16,11 @@ const SearchZone = (props) => {
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                props.searchBook();
+                props.clearSearch();
               }
             }}
           />
-          <button onClick={props.searchBook}>
+          <button onClick={props.clearSearch}>
             <i className="fas fa-search"></i>
           </button>
         </div>

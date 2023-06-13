@@ -5,11 +5,11 @@ import "../Css/BookContainer.css";
 const BookContainer = (props) => {
   let path = "/book/";
 
-  if (props.bookData.data === undefined || props.bookData.data.items === undefined) {
+  if (props.bookData.length === 0) {
     return "";
   } else {
-    console.log(props.bookData.data.items);
-    return props.bookData.data.items.map((item) => {
+    console.log(props.bookData);
+    return props.bookData.map((item) => {
       path += `${item.id}`;
       if (
         item.volumeInfo.imageLinks !== undefined &&

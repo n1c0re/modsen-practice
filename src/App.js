@@ -4,30 +4,65 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchZone from "./Components/SearchZone";
 import ResultZone from "./Components/ResultZone";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes?q=";
 const API_KEY = "AIzaSyAVHh3aAiSke8Ap6Zx6qtYfTVTZsPqNP8U";
 
 function App() {
   const [search, setSearch] = useState("");
+
   const [category, setCategory] = useState(" ");
   const [sorting, setSorting] = useState("relevance");
-  const [bookData, setData] = useState([]);
-  // const [loading, setLoading] = useState(false);
 
-  const searchBook = () => {
-    axios
-      .get(
-        `${BOOKS_API_URL}${search}+subject:${category}&startIndex=3&orderBy=${sorting}&key=${API_KEY}&maxResults=30`
-      )
-      .then((response) => setData(response))
-      .catch((error) => console.log(error));
-    console.log(bookData);
-    console.log(
-      `${BOOKS_API_URL}${search}+subject:${category}&orderBy=${sorting}&key=${API_KEY}&maxResults=30`
-    );
+  const [bookData, setData] = useState([]);
+
+  const [startIndex, setStartIndex] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
+
+  // useEffect(() => {
+  //   if (totalItems !== 0) {
+  //     searchBook();
+  //   }
+  // }, [startIndex]);
+
+  const searchBook = async () => {
+    try {
+      console.log(startIndex);
+      const response = await axios.get(
+        `${BOOKS_API_URL}${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=5&key=${API_KEY}`
+      );
+      setData(response.data.items || []);
+      setTotalItems(response.data.totalItems || 0);
+      console.log(bookData);
+      console.log(
+        `${BOOKS_API_URL}${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=5&key=${API_KEY}`
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  const clearSearch = () => {
+    setData([]);
+    setStartIndex(0);
+    searchBook();
+  };
+
+  const loadMore = async () => {
+    try {
+      setStartIndex(startIndex + 10);
+      const response = await axios.get(
+        `${BOOKS_API_URL}${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=5&key=${API_KEY}`
+      );
+      setData((prevBooks) => [...prevBooks, ...response.data.items]);
+      console.log(bookData);
+    } catch (error) {
+      console.error(error);
+    }
+    console.log(startIndex);
+  };
+
   return (
     <BrowserRouter>
       <div className="wrapper">
@@ -35,10 +70,20 @@ function App() {
           setSearch={setSearch}
           setCategory={setCategory}
           setSorting={setSorting}
-          searchBook={searchBook}
+          // searchBook={searchBook}
+          clearSearch={clearSearch}
         />
         <Routes>
-          <Route path="/" element={<ResultZone bookData={bookData} />} />
+          <Route
+            path="/"
+            element={
+              <ResultZone
+                bookData={bookData}
+                loadMore={loadMore}
+                totalItems={totalItems}
+              />
+            }
+          />
           <Route path="/book/" element={<BookPage />} />
         </Routes>
       </div>
