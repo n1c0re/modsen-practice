@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchZone from "./Components/SearchZone";
 import ResultZone from "./Components/ResultZone";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes?q=";
 const API_KEY = "AIzaSyAVHh3aAiSke8Ap6Zx6qtYfTVTZsPqNP8U";
@@ -19,12 +19,6 @@ function App() {
 
   const [startIndex, setStartIndex] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
-
-  // useEffect(() => {
-  //   if (totalItems !== 0) {
-  //     searchBook();
-  //   }
-  // }, [startIndex]);
 
   const searchBook = async () => {
     try {
