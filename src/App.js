@@ -78,7 +78,7 @@ function App() {
               />
             }
           />
-          <Route path="/book/" element={<BookPage />} />
+          <Route path="/book/:bookId" element={<BookPage bookData={bookData} />} />
         </Routes>
       </div>
     </BrowserRouter>
