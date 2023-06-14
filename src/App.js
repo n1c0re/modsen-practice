@@ -22,15 +22,15 @@ function App() {
 
   const searchBook = async () => {
     try {
-      console.log(startIndex);
+      console.log(`startIndex search: ${startIndex}`);
       const response = await axios.get(
-        `${BOOKS_API_URL}${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=5&key=${API_KEY}`
+        `${BOOKS_API_URL}${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=40&key=${API_KEY}`
       );
       setData(response.data.items || []);
       setTotalItems(response.data.totalItems || 0);
       console.log(bookData);
       console.log(
-        `${BOOKS_API_URL}${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=5&key=${API_KEY}`
+        `${BOOKS_API_URL}${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=40&key=${API_KEY}`
       );
     } catch (error) {
       console.log(error);
@@ -44,8 +44,9 @@ function App() {
   };
 
   const loadMore = async () => {
+    console.log(`startIndex load: ${startIndex}`);
     try {
-      setStartIndex(startIndex + 10);
+      setStartIndex(startIndex + 40);
       const response = await axios.get(
         `${BOOKS_API_URL}${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=5&key=${API_KEY}`
       );
@@ -54,7 +55,6 @@ function App() {
     } catch (error) {
       console.error(error);
     }
-    console.log(startIndex);
   };
 
   return (
