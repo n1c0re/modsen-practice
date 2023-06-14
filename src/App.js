@@ -12,7 +12,7 @@ const API_KEY = "AIzaSyAVHh3aAiSke8Ap6Zx6qtYfTVTZsPqNP8U";
 function App() {
   const [search, setSearch] = useState("");
 
-  const [category, setCategory] = useState(" ");
+  const [category, setCategory] = useState("");
   const [sorting, setSorting] = useState("relevance");
 
   const [bookData, setData] = useState([]);
@@ -48,7 +48,7 @@ function App() {
     try {
       setStartIndex(startIndex + 40);
       const response = await axios.get(
-        `${BOOKS_API_URL}${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=5&key=${API_KEY}`
+        `${BOOKS_API_URL}${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=40&key=${API_KEY}`
       );
       setData((prevBooks) => [...prevBooks, ...response.data.items]);
       console.log(bookData);

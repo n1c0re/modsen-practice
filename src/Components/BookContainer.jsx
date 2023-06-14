@@ -5,36 +5,28 @@ import "../Css/BookContainer.css";
 const BookContainer = (props) => {
   let path = "/book/";
 
-  if (props.bookData.length === 0) {
-    return "";
-  } else {
+  if ("bookData" in props) {
     console.log(props.bookData);
     return props.bookData.map((item) => {
       path += `${item.id}`;
-      if (
-        item.volumeInfo.imageLinks !== undefined &&
-        item.volumeInfo.categories !== undefined &&
-        item.volumeInfo.title !== undefined &&
-        item.volumeInfo.authors !== undefined
-      ) {
         return (
           <div className="book-container">
             <NavLink to={path}>
               <img
-                src={item.volumeInfo.imageLinks.thumbnail}
-                alt="Book image"
+                src={("imageLinks" in item.volumeInfo) ? item.volumeInfo.imageLinks.thumbnail : "../../public/undefinedBook.png"}
+                alt="Book"
               />
             </NavLink>
             <div className="bookInfo">
-              <p class="book-category">{item.volumeInfo.categories[0]}</p>
-              <h2 class="book-name">{item.volumeInfo.title}</h2>
-              <p class="book-author">{item.volumeInfo.authors[0]}</p>
+              <p class="book-category">{("categories" in item.volumeInfo) ? item.volumeInfo.categories[0] : "No category"}</p>
+              <h2 class="book-name">{("title" in item.volumeInfo) ? item.volumeInfo.title : "No title"}</h2>
+              <p class="book-author">{("authors" in item.volumeInfo) ? item.volumeInfo.authors[0] : "No authors"}</p>
             </div>
           </div>
         );
-      }
     });
+  } else {
+    return "";
   }
-  // return <></>;
 };
 export default BookContainer;

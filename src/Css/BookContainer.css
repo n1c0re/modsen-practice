@@ -19,3 +19,7 @@ a {
   margin-top: 10px;
   text-decoration: underline;
 }
+
+img {
+  height: 200px;
+}
