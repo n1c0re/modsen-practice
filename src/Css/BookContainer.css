@@ -1,25 +1,31 @@
-﻿.book-container {
-  width: 300px;
+﻿.bookContainer {
+  width: 250px;
   border: 1px solid #ccc;
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
   margin-right: 15px;
   margin-bottom: 15px;
-  background-color: rgb(190, 205, 215);
+  background-color: rgb(218, 226, 233);
   position: relative;
+  border-radius: 5px;
 }
 
 a {
   align-self: center;
 }
 
-.book-category {
+.bookCategory {
   font-size: 14px;
   margin-top: 10px;
   text-decoration: underline;
 }
 
+.bookName {
+font-size: 15px;
+}
+
 img {
-  height: 200px;
+  height: 250px;
+  width: 150px;
 }

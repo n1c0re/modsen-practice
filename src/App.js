@@ -20,14 +20,18 @@ function App() {
   const [startIndex, setStartIndex] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
 
+  const [loading, setLoading] = useState(false);
+
   const searchBook = async () => {
     try {
+      setLoading(true);
       console.log(`startIndex search: ${startIndex}`);
       const response = await axios.get(
         `${BOOKS_API_URL}${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=40&key=${API_KEY}`
       );
       setData(response.data.items || []);
       setTotalItems(response.data.totalItems || 0);
+      setLoading(false);
       console.log(bookData);
       console.log(
         `${BOOKS_API_URL}${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=40&key=${API_KEY}`
@@ -64,21 +68,27 @@ function App() {
           setSearch={setSearch}
           setCategory={setCategory}
           setSorting={setSorting}
-          // searchBook={searchBook}
           clearSearch={clearSearch}
         />
         <Routes>
           <Route
             path="/"
             element={
-              <ResultZone
-                bookData={bookData}
-                loadMore={loadMore}
-                totalItems={totalItems}
-              />
+              loading ? (
+                <div className="loading">Loading books...</div>
+              ) : (
+                <ResultZone
+                  bookData={bookData}
+                  loadMore={loadMore}
+                  totalItems={totalItems}
+                />
+              )
             }
           />
-          <Route path="/book/:bookId" element={<BookPage bookData={bookData} />} />
+          <Route
+            path="/book/:bookId"
+            element={<BookPage bookData={bookData} />}
+          />
         </Routes>
       </div>
     </BrowserRouter>

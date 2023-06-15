@@ -1,22 +1,54 @@
 ﻿.bookpage {
   display: flex;
-  height: calc(100vh - 188px);
+  height: 80vh;
 }
 
 .bookImage {
   background-color: aliceblue;
-  width: 45%;
-  border: 1px solid;
+  width: 35vw;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .bookImage img {
-  width: 300px;
+  width: 80%;
+  height: 80%;
 }
 
 .info {
+  display: flex;
+  flex-direction: column;
   margin-left: 40px;
   margin-top: 30px;
+  width: 60vw;
+}
+
+.backButton {
+  height: 50px;
+  width: 140px;
+  color: black;
+  font-size: 30px;
+  background-color: rgb(218, 226, 233);
+  border-radius: 5px;
+  margin-bottom: 16px;
+  border: 1px solid rgb(189, 197, 203);
+}
+
+.infoCategory {
+  margin-bottom: 24px;
+}
+
+.infoName {
+  margin-bottom: 20px;
+}
+
+.infoAuthor {
+  margin-bottom: 36px;
+}
+
+.infoDescription {
+  margin-right: 10px;
+  outline: 1px solid rgb(205, 209, 211);
+  outline-offset:16px;
 }

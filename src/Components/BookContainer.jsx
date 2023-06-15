@@ -7,17 +7,17 @@ const BookContainer = (props) => {
     console.log(props.bookData);
     return props.bookData.map((item) => {
         return (
-          <div className="book-container">
+          <div className="bookContainer">
             <Link to={`/book/${item.id}`}>
               <img
-                src={("imageLinks" in item.volumeInfo) ? item.volumeInfo.imageLinks.thumbnail : "../../public/undefinedBook.png"}
+                src={("imageLinks" in item.volumeInfo) ? item.volumeInfo.imageLinks.thumbnail : "https://cdn-icons-png.flaticon.com/128/3557/3557574.png"}
                 alt="Book"
               />
             </Link>
             <div className="bookInfo">
-              <div className="book-category">{("categories" in item.volumeInfo) ? item.volumeInfo.categories[0] : "No category"}</div>
-              <h2 className="book-name">{("title" in item.volumeInfo) ? item.volumeInfo.title : "No title"}</h2>
-              <div className="book-author">{("authors" in item.volumeInfo) ? item.volumeInfo.authors[0] : "No authors"}</div>
+              <div className="bookCategory">{("categories" in item.volumeInfo) ? item.volumeInfo.categories[0] : "No category"}</div>
+              <h2 className="bookName">{("title" in item.volumeInfo) ? item.volumeInfo.title : "No title"}</h2>
+              <div className="bookAuthor">{("authors" in item.volumeInfo) ? item.volumeInfo.authors[0] : "No authors"}</div>
             </div>
           </div>
         );
