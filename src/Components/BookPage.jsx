@@ -7,7 +7,7 @@ const BookPage = () => {
   const { bookId } = useParams();
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(false);
-  
+
   const navigate = useNavigate();
 
   function handleClick() {
@@ -31,49 +31,54 @@ const BookPage = () => {
         console.error(error);
       }
     };
-    
+
     fetchBook();
   }, [bookId]);
 
   if ("data" in book) {
-    if (loading) {return <div>loading</div>} else {
-    return (
-      <div className="bookpage">
-        <div className="bookImage">
-          <img
-            src={
-              "imageLinks" in book.data.volumeInfo
-                ? book.data.volumeInfo.imageLinks.thumbnail
-                : "https://cdn-icons-png.flaticon.com/128/3557/3557574.png"
-            }
-            alt="Book Cover"
-          />
+    if (loading) {
+      return <div>loading</div>;
+    } else {
+      return (
+        <div className="bookpage">
+          <div className="bookImage">
+            <img
+              src={
+                "imageLinks" in book.data.volumeInfo
+                  ? book.data.volumeInfo.imageLinks.thumbnail
+                  : "https://cdn-icons-png.flaticon.com/128/3557/3557574.png"
+              }
+              alt="Book Cover"
+            />
+          </div>
+          <div className="info">
+            <button className="backButton" onClick={handleClick}>
+              Go Back
+            </button>
+            <div class="infoCategory">
+              {"categories" in book.data.volumeInfo
+                ? book.data.volumeInfo.categories[0]
+                : "No category"}
+            </div>
+            <h2 class="infoName">
+              {"title" in book.data.volumeInfo
+                ? book.data.volumeInfo.title
+                : "No title"}
+            </h2>
+            <div class="infoAuthor">
+              {"authors" in book.data.volumeInfo
+                ? book.data.volumeInfo.authors[0]
+                : "No authors"}
+            </div>
+            <div class="infoDescription">
+              {"description" in book.data.volumeInfo
+                ? book.data.volumeInfo.description.slice(0, 1700)
+                : "No description"}
+            </div>
+          </div>
         </div>
-        <div className="info">
-        <button className="backButton" onClick={handleClick}>Go Back</button>
-          <div class="infoCategory">
-            {"categories" in book.data.volumeInfo
-              ? book.data.volumeInfo.categories[0]
-              : "No category"}
-          </div>
-          <h2 class="infoName">
-            {"title" in book.data.volumeInfo
-              ? book.data.volumeInfo.title
-              : "No title"}
-          </h2>
-          <div class="infoAuthor">
-            {"authors" in book.data.volumeInfo
-              ? book.data.volumeInfo.authors[0]
-              : "No authors"}
-          </div>
-          <div class="infoDescription">
-            {"description" in book.data.volumeInfo
-              ? book.data.volumeInfo.description.slice(0,1700)
-              : "No description"}
-          </div>
-        </div>
-      </div>
-    );}
+      );
+    }
   }
 };
 

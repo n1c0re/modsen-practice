@@ -10,13 +10,9 @@ const ResultZone = (props) => {
         <div className="resultZone">
           <BookContainer bookData={props.bookData} />
         </div>
-        {props.bookData.length !== 0 ? (
-          <button onClick={props.loadMore} className="more">
-            Load More
-          </button>
-        ) : (
-          ""
-        )}
+        { props.bookData.length !== 0 ? (
+          <button onClick={props.loadMore} className="more"> Load More </button> ) :
+          ("") }
       </>
     );
   } catch (error) {
