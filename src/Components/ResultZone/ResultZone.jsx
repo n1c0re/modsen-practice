@@ -1,6 +1,8 @@
+import "./ResultZone.css";
+
 import React from "react";
-import BookContainer from "./BookContainer";
-import "../Css/ResultZone.css";
+
+import BookContainer from "../BookContainer/BookContainer";
 
 const ResultZone = (props) => {
   try {

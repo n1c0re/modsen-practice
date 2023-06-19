@@ -1,14 +1,16 @@
+import "./SearchZone.css";
+
 import React from "react";
-import "../Css/SearchZone.css";
 import { useNavigate } from "react-router-dom";
 
 const SearchZone = (props) => {
   const navigate = useNavigate();
-  
+
   function handleClick() {
     props.clearSearch();
     navigate("/");
   }
+
   return (
     <div className="header">
       <div className="searchContainer">
@@ -25,7 +27,6 @@ const SearchZone = (props) => {
               if (e.key === "Enter") {
                 props.clearSearch();
                 navigate("/");
-
               }
             }}
           />
