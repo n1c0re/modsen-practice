@@ -1,20 +1,27 @@
 import "./ResultZone.css";
 
-import React from "react";
+import React, { useContext } from "react";
 
+import { AppContext } from "../AppProvider";
 import BookContainer from "../BookContainer/BookContainer";
 
-const ResultZone = (props) => {
+const ResultZone = () => {
+  const { bookData, loadMore, totalItems, loading } = useContext(AppContext);
+
   try {
     return (
-      <>
-        <div className="foundText">Found {props.totalItems} books</div>
+      <> { loading ? <div className="loading">Loading books...</div> : <div className="foundText">Found {totalItems} books</div>}
+        
         <div className="resultZone">
-          <BookContainer bookData={props.bookData} />
+          <BookContainer bookData={bookData} />
         </div>
-        { props.bookData.length !== 0 ? (
-          <button onClick={props.loadMore} className="more"> Load More </button> ) :
-          ("") }
+        {bookData.length !== 0 ? (
+          <button onClick={loadMore} className="more">
+            Load More
+          </button>
+        ) : (
+          ""
+        )}
       </>
     );
   } catch (error) {

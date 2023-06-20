@@ -1,15 +1,20 @@
 import "./SearchZone.css";
 
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SearchZone = (props) => {
+import { AppContext } from "../AppProvider";
+
+const SearchZone = () => {
   const navigate = useNavigate();
 
   function handleClick() {
-    props.clearSearch();
+    clearSearch();
     navigate("/");
   }
+
+  const { search, setSearch, clearSearch, setCategory, setSorting } =
+    useContext(AppContext);
 
   return (
     <div className="header">
@@ -19,13 +24,13 @@ const SearchZone = (props) => {
           <input
             type="text"
             placeholder="Enter book name"
-            value={props.search}
+            value={search}
             onChange={(e) => {
-              props.setSearch(e.target.value);
+              setSearch(e.target.value);
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                props.clearSearch();
+                clearSearch();
                 navigate("/");
               }
             }}
@@ -40,7 +45,7 @@ const SearchZone = (props) => {
             name="categories"
             id="category-select"
             onChange={(e) => {
-              props.setCategory(e.target.value);
+              setCategory(e.target.value);
             }}
           >
             <option value="">All</option>
@@ -56,7 +61,7 @@ const SearchZone = (props) => {
             name="sorting"
             id="sorting-select"
             onChange={(e) => {
-              props.setSorting(e.target.value);
+              setSorting(e.target.value);
             }}
           >
             <option value="relevance">Relevance</option>
