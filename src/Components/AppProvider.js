@@ -6,6 +6,7 @@ export const AppContext = createContext();
 const BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes?q=";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
+console.log(process.env.REACT_APP_API_KEY);
 export const AppProvider = ({ children }) => {
     const [search, setSearch] = useState("");
 
