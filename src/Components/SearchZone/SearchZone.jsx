@@ -13,6 +13,24 @@ const SearchZone = () => {
     navigate("/");
   }
 
+  function handleKeyDown(e) {
+    if (e.key === "Enter") {
+      clearSearch();
+      navigate("/");
+    }
+  }
+
+  function handleSearchChange(e) {
+    setSearch(e.target.value);
+  }
+
+  function handleCategoryChange(e) {
+    setCategory(e.target.value);
+  }
+
+  function handleSortingChange(e) {
+    setSorting(e.target.value);
+  }
   const { search, setSearch, clearSearch, setCategory, setSorting } =
     useContext(AppContext);
 
@@ -25,15 +43,8 @@ const SearchZone = () => {
             type="text"
             placeholder="Enter book name"
             value={search}
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                clearSearch();
-                navigate("/");
-              }
-            }}
+            onChange={handleSearchChange}
+            onKeyDown={handleKeyDown}
           />
           <button onClick={handleClick}>
             <i className="fas fa-search"></i>
@@ -44,9 +55,7 @@ const SearchZone = () => {
           <select
             name="categories"
             id="category-select"
-            onChange={(e) => {
-              setCategory(e.target.value);
-            }}
+            onChange={handleCategoryChange}
           >
             <option value="">All</option>
             <option value="art">Art</option>
@@ -60,9 +69,7 @@ const SearchZone = () => {
           <select
             name="sorting"
             id="sorting-select"
-            onChange={(e) => {
-              setSorting(e.target.value);
-            }}
+            onChange={handleSortingChange}
           >
             <option value="relevance">Relevance</option>
             <option value="newest">Newest</option>

@@ -1,6 +1,9 @@
 ﻿.bookpage {
   display: flex;
   height: 80vh;
+  @media (max-width: 664px) {
+    display: block;
+  }
 }
 
 .bookImage {
@@ -9,6 +12,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 664px) {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .bookImage img {
