@@ -1,19 +1,18 @@
 ﻿.bookContainer {
-  width: 15rem;
-  /* height: 18rem; */
+  width: 250px;
   border: 1px solid #ccc;
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
+  margin-right: 15px;
+  margin-bottom: 15px;
   background-color: rgb(218, 226, 233);
   position: relative;
-  border-radius: 0.3rem;
+  border-radius: 5px;
 }
 
-.bookAuthor {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+a {
+  align-self: center;
 }
 
 .bookCategory {
@@ -23,25 +22,10 @@
 }
 
 .bookName {
-  font-size: 20px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.containerImage {
-width: 12rem;
-height: 18rem;
-align-self: center;
+font-size: 15px;
 }
 
 img {
-  height: 100%;
-  width: 100%;
-  margin: auto;
-} 
-
-a {
-  text-decoration: none;
-  color: #000;
+  height: 250px;
+  width: 150px;
 }

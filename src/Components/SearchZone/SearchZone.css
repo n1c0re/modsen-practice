@@ -1,9 +1,8 @@
 ﻿.header {
   width: 100%;
-  background-color: rgb(125, 125, 112);
-  /* background-image: url("../../assets/book.jpg"); */
+  background: url("../../assets/book.jpg");
   background-position: 0%;
-  height: 8rem;
+  height: 130px;
   color: white;
   border: 10px black;
   display: flex;
@@ -14,9 +13,26 @@
   position: sticky;
   top: 0;
   z-index: 100;
+}
 
-  @media (max-width: 664px) {
-    height: 13rem;
+@media (max-width: 500px) {
+  .filters {
+    flex-direction: column;
+  }
+  .header {
+    height: 230px;
+  }
+}
+
+@media (pointer:coarse) {
+  .search input {
+    width: 80vw;
+  }
+}
+
+@media (pointer: fine){
+  .search input {
+    width: 25vw;
   }
 }
 
@@ -27,14 +43,6 @@
   padding: 0 0.5rem;
   font-size: 15px;
   font-weight: bold;
-
-  @media (pointer:coarse) {
-    width: 80vw;
-  }
-
-  @media (pointer: fine) {
-    width: 40vw;
-  }
 }
 
 .search {
@@ -48,10 +56,6 @@
   align-items: center;
   justify-content: center;
   margin-top: 10px;
-
-  @media (max-width: 664px) {
-    flex-direction: column;
-  }
 }
 
 .search button {
