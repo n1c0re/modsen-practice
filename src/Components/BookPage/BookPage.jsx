@@ -48,7 +48,7 @@ const BookPage = () => {
             {book?.volumeInfo?.description
               ? book.volumeInfo.description
                   .replace(/<(.)*?>/g, "")
-                  .slice(0, 1600)
+                  .slice(0, 1400)
               : "No description"}
           </div>
         </div>
