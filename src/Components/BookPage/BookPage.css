@@ -9,6 +9,7 @@
 .bookImage {
   background-color: aliceblue;
   width: 35vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,11 +25,16 @@
 }
 
 .info {
-  display: flex;
-  flex-direction: column;
-  margin-left: 40px;
-  margin-top: 30px;
-  width: 60vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-top: 30px;
+    width: 55vw;
+    @media (max-width: 664px) {
+        align-items:center;
+        width: 85vw;
+        margin-left: 30px;
+        }
 }
 
 .backButton {
@@ -55,7 +61,7 @@
 }
 
 .infoDescription {
-  margin-right: 10px;
   outline: 1px solid rgb(205, 209, 211);
   outline-offset:16px;
+  height: 35vh;
 }
