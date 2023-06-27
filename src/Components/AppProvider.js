@@ -6,7 +6,8 @@ export const AppContext = createContext();
 const BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes?q=";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-export const AppProvider = ({ children }) => {
+// eslint-disable-next-line react/prop-types
+export function AppProvider({ children }) {
     const [search, setSearch] = useState("");
 
     const [category, setCategory] = useState("");
@@ -23,7 +24,6 @@ export const AppProvider = ({ children }) => {
       try {
         setLoading(true);
         document.documentElement.classList.add("waitingCursor");
-        console.log(`startIndex search: ${startIndex}`);
         const response = await axios.get(
           `${BOOKS_API_URL}intitle:${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=40&key=${API_KEY}`
         );
@@ -31,10 +31,6 @@ export const AppProvider = ({ children }) => {
         setTotalItems(response.data.totalItems || 0);
         setLoading(false);
         document.documentElement.classList.remove("waitingCursor");
-        console.log(bookData);
-        console.log(
-          `${BOOKS_API_URL}${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=40&key=${API_KEY}`
-        );
       } catch (error) {
         console.log(error);
       }
@@ -47,19 +43,18 @@ export const AppProvider = ({ children }) => {
     };
   
     const loadMore = async () => {
-      console.log(`startIndex load: ${startIndex}`);
       try {
         setStartIndex(startIndex + 40);
         const response = await axios.get(
           `${BOOKS_API_URL}${search}+subject:${category}&startIndex=${startIndex}&orderBy=${sorting}&maxResults=40&key=${API_KEY}`
         );
         setData((prevBooks) => [...prevBooks, ...response.data.items]);
-        console.log(bookData);
       } catch (error) {
         console.error(error);
       }
     };
 
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
     const contextValue = {
       search,
       setSearch,

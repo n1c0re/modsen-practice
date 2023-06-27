@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import "./SearchZone.css";
 
 import React, { useContext } from "react";
@@ -5,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import { AppContext } from "../AppProvider";
 
-const SearchZone = () => {
+function SearchZone() {
   const navigate = useNavigate();
 
   function handleClick() {
@@ -46,8 +47,8 @@ const SearchZone = () => {
             onChange={handleSearchChange}
             onKeyDown={handleKeyDown}
           />
-          <button onClick={handleClick}>
-            <i className="fas fa-search"></i>
+          <button type="submit" onClick={handleClick}>
+            <i className="fas fa-search" />
           </button>
         </div>
         <div className="filters">
@@ -78,6 +79,6 @@ const SearchZone = () => {
       </div>
     </div>
   );
-};
+}
 
 export default SearchZone;

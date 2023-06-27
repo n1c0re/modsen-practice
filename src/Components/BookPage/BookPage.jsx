@@ -6,13 +6,17 @@ import { useNavigate, useParams } from "react-router-dom";
 import undefinedBook from "../../assets/undefinedBook.png";
 import { AppContext } from "../AppProvider";
 
-const BookPage = () => {
+function BookPage() {
   const { bookData } = useContext(AppContext);
   const { bookId } = useParams();
   
-  const book = bookData.find((book) => book.id === bookId);
+  const book = bookData.find((bookElement) => bookElement.id === bookId);
 
   const navigate = useNavigate();
+  
+  const handleClick = () => {
+    navigate(-1);
+  }
 
   if (book) {
     return (
@@ -28,7 +32,7 @@ const BookPage = () => {
           />
         </div>
         <div className="info">
-          <button className="backButton" onClick={() => navigate(-1)}>
+          <button type="submit" className="backButton" onClick={handleClick}>
             Go Back
           </button>
           <div className="infoCategory">
@@ -55,6 +59,6 @@ const BookPage = () => {
       </div>
     );
   }
-};
+}
 
 export default BookPage;
